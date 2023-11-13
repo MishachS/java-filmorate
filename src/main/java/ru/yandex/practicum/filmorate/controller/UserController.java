@@ -13,7 +13,7 @@ import java.util.List;
 public class UserController extends MainController<User> {
 
     @GetMapping
-    public List<User> getListUsers(){
+    public List<User> getListUsers() {
         log.info("Get users");
         return getMap();
     }
@@ -33,7 +33,7 @@ public class UserController extends MainController<User> {
 
     @Override
     public void validate(User user) {
-        if (user.getName() == null || user.getName().isBlank() || user.getName().isEmpty()){
+        if (user.getName() == null || user.getName().isBlank() || user.getName().isEmpty()) {
             user.setName(user.getLogin());
         }
     }
