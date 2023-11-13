@@ -19,7 +19,7 @@ public class UserController extends MainController<User> {
     }
 
     @PostMapping
-    public User addUser(@Valid @RequestBody User user){
+    public User addUser(@Valid @RequestBody User user) {
         log.info("Add user{}", user);
         return create(user);
     }
@@ -32,8 +32,8 @@ public class UserController extends MainController<User> {
 
 
     @Override
-    public void validate(User user){
-        if(user.getName() == null || user.getName().isBlank() || user.getName().isEmpty()){
+    public void validate(User user) {
+        if (user.getName() == null || user.getName().isBlank() || user.getName().isEmpty()){
             user.setName(user.getLogin());
         }
     }
