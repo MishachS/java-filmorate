@@ -76,10 +76,10 @@ public class UserControllerTest {
     }
 
 
-    private String getStringFromFile(String fileName){
-        try{
+    private String getStringFromFile(String fileName) {
+        try {
             return Files.readString(ResourceUtils.getFile("classpath:" + fileName).toPath(), StandardCharsets.UTF_8);
-        } catch (IOException e){
+        } catch (IOException e) {
             return "Ошибка чтения файла!";
         }
     }
