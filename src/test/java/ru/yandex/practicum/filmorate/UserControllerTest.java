@@ -26,14 +26,9 @@ import java.time.LocalDate;
 @ActiveProfiles("test")
 public class UserControllerTest {
     public static final String PATH = "/users";
-    private UserController userController;
+    private static UserController userController = new UserController();
     @Autowired
     private MockMvc mvc;
-
-    @BeforeEach
-    void init() {
-        userController = new UserController();
-    }
 
     @Test
     void addUserTest() throws Exception {

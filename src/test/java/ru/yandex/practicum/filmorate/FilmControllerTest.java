@@ -27,14 +27,9 @@ import java.time.LocalDate;
 public class FilmControllerTest {
 
     public static final String PATH = "/films";
-    private FilmController filmController;
+    private static FilmController filmController = new FilmController();
     @Autowired
     private MockMvc mvc;
-
-    @BeforeEach
-    void init() {
-        filmController = new FilmController();
-    }
 
     @Test
     void addFilmTest() throws Exception {
@@ -82,7 +77,7 @@ public class FilmControllerTest {
             return Files.readString(ResourceUtils.getFile("classpath:" + filename).toPath(),
                     StandardCharsets.UTF_8);
         } catch (IOException exception) {
-            return "";
+            return "Ошибка чтения файла!";
         }
     }
 }
