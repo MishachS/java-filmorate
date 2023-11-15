@@ -9,9 +9,9 @@ public interface Storage<T extends MainModel> {
 
     T update(T data);
 
-    List<T> getAll ();
+    List<T> getAll();
 
-    T getId (Long id);
+    T getId(Long id);
 
-    boolean delete (T data);
+    boolean delete(T data);
 }
