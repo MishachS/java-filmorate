@@ -1,0 +1,6 @@
+{
+  "name": "testFilm",
+  "description": "testFilm",
+  "releaseDate" : "2002-11-12",
+  "duration": "100"
+}

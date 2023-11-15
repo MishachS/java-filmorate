@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import jakarta.validation.constraints.*;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 
