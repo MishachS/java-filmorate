@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.util.ResourceUtils;
 import ru.yandex.practicum.filmorate.controller.FilmController;
-import ru.yandex.practicum.filmorate.controller.NotFoundException;
+import ru.yandex.practicum.filmorate.exception.NotFoundException;
 import ru.yandex.practicum.filmorate.model.Film;
 
 import java.io.IOException;
@@ -26,7 +26,8 @@ import java.time.LocalDate;
 public class FilmControllerTest {
 
     public static final String PATH = "/films";
-    private static FilmController filmController = new FilmController();
+    @Autowired
+    private static FilmController filmController;
     @Autowired
     private MockMvc mvc;
 

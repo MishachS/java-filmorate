@@ -1,5 +1,6 @@
 package ru.yandex.practicum.filmorate.controller;
 
+import ru.yandex.practicum.filmorate.exception.NotFoundException;
 import ru.yandex.practicum.filmorate.model.MainModel;
 
 import java.util.ArrayList;
@@ -16,9 +17,8 @@ public abstract class MainController <T extends MainModel> {
     }
 
     public T update(T data) {
-        validate(data);
         if (!storage.containsKey(data.getId())) {
-            throw new NotFoundException(String.format("Обновление невозможно %s не сущесвует", data));
+            throw new NotFoundException(String.format("Ошибка обновления! %s не существует!", data));
         }
         storage.put(data.getId(), data);
         return data;
@@ -26,11 +26,9 @@ public abstract class MainController <T extends MainModel> {
     }
 
     public T create(T data) {
-        validate(data);
         data.setId(++generationId);
         storage.put(data.getId(), data);
         return data;
     }
 
-    public abstract void validate(T data);
 }

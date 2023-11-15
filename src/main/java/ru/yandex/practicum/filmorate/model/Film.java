@@ -7,6 +7,8 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.*;
 import java.time.LocalDate;
+import java.util.Set;
+import java.util.TreeSet;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -22,5 +24,7 @@ public class Film extends MainModel {
     private LocalDate releaseDate;
     @Min(1)
     private int duration;
+
+    private Set<Long> like = new TreeSet<>();
 
 }
