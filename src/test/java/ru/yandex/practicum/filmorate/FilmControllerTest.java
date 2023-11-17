@@ -1,6 +1,7 @@
 package ru.yandex.practicum.filmorate;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -13,6 +14,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.util.ResourceUtils;
 import ru.yandex.practicum.filmorate.controller.FilmController;
 import ru.yandex.practicum.filmorate.exception.NotFoundException;
+import ru.yandex.practicum.filmorate.exception.ValidationException;
 import ru.yandex.practicum.filmorate.model.Film;
 
 import java.io.IOException;
@@ -20,16 +22,20 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.time.LocalDate;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 public class FilmControllerTest {
 
     public static final String PATH = "/films";
     @Autowired
-    private static FilmController filmController;
+    private FilmController filmController;
     @Autowired
     private MockMvc mvc;
+
+    @BeforeEach
+    void setUp() {
+    }
 
     @Test
     void addFilmTest() throws Exception {
@@ -57,7 +63,7 @@ public class FilmControllerTest {
                 .duration(100)
                 .build();
 
-        Assertions.assertThrows(NotFoundException.class, () -> filmController.addFilm(film));
+        Assertions.assertThrows(ValidationException.class, () -> filmController.addFilm(film));
     }
 
     @Test
