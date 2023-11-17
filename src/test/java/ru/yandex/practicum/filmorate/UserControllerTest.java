@@ -26,7 +26,7 @@ import java.time.LocalDate;
 public class UserControllerTest {
     public static final String PATH = "/users";
     @Autowired
-    private static UserController userController;
+    private UserController userController;
     @Autowired
     private MockMvc mvc;
 
