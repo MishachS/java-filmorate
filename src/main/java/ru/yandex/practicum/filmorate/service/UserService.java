@@ -2,6 +2,7 @@ package ru.yandex.practicum.filmorate.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import ru.yandex.practicum.filmorate.exception.ValidationException;
 import ru.yandex.practicum.filmorate.model.User;
 import ru.yandex.practicum.filmorate.storage.InMemoryMainStorage;
 
@@ -58,6 +59,9 @@ public class UserService extends MainService<User> {
 
     @Override
     public void validate(User user) {
+        if(user.getLogin() == null || user.getLogin().isBlank() || user.getLogin().isEmpty()) {
+            throw new ValidationException("Логин не может быть равен NULL!");
+        }
         if (user.getName() == null || user.getName().isBlank() || user.getName().isEmpty()) {
             user.setName(user.getLogin());
         }

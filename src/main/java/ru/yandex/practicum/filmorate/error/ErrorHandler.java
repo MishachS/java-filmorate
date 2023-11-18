@@ -20,7 +20,7 @@ public class ErrorHandler {
     }
 
     @ExceptionHandler(value = HttpMediaTypeNotAcceptableException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorResponse handlerHttpMediaTypeNotAcceptableException(final HttpMediaTypeNotAcceptableException exception) {
         log.info("Данные не найдены {}", exception.getMessage());
         return new ErrorResponse(exception.getMessage());
