@@ -7,6 +7,8 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.*;
 import java.time.LocalDate;
+import java.util.Set;
+import java.util.TreeSet;
 
 
 @Data
@@ -23,4 +25,6 @@ public class User extends MainModel {
     private String name;
     @PastOrPresent
     private LocalDate birthday;
+
+    private Set<Long> friends = new TreeSet<>();
 }
