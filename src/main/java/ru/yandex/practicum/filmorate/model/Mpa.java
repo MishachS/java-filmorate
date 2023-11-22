@@ -11,7 +11,7 @@ import javax.validation.constraints.NotBlank;
 @SuperBuilder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Mpa extends MainModel{
+public class Mpa extends MainModel {
     @NotBlank
     private String name;
 }

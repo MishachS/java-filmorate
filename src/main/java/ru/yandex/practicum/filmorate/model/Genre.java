@@ -11,7 +11,7 @@ import javax.validation.constraints.NotBlank;
 @SuperBuilder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Genre extends MainModel{
+public class Genre extends MainModel {
     @NotBlank
     private String name;
 }
