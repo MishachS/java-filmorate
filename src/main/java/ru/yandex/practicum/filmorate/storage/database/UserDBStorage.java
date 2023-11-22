@@ -28,33 +28,33 @@ public class UserDBStorage implements UserStorage {
 
 
     @Override
-    public User create(User u) {
+    public User create(User user) {
         String sqlQuery = "INSERT INTO USERS (EMAIL, LOGIN, NAME, BIRTHDAY) VALUES(?, ?, ?, ?);";
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> {
             PreparedStatement stmt = connection.prepareStatement(sqlQuery, new String[]{"USER_ID"});
-            stmt.setString(1, u.getEmail());
-            stmt.setString(2, u.getLogin());
-            stmt.setString(3, u.getName());
-            stmt.setDate(4, Date.valueOf(u.getBirthday()));
+            stmt.setString(1, user.getEmail());
+            stmt.setString(2, user.getLogin());
+            stmt.setString(3, user.getName());
+            stmt.setDate(4, Date.valueOf(user.getBirthday()));
             return stmt;
         }, keyHolder);
-        u.setId(keyHolder.getKey().longValue());
-        if (getId(u.getId()) == null) {
-            throw new NotFoundException(String.format("Добавление не произошло %s ", u));
+        user.setId(keyHolder.getKey().longValue());
+        if (getId(user.getId()) == null) {
+            throw new NotFoundException(String.format("Добавление не произошло %s ", user));
         }
-        log.info("Пользователь с идентификатором {} добавлен.", u.getId());
-        return u;
+        log.info("Пользователь с идентификатором {} добавлен.", user.getId());
+        return user;
     }
 
     @Override
-    public User update(User u) {
-        if (getId(u.getId()) == null) {
-            throw new NotFoundException(String.format("Обновление невозможно %s не сущесвует", u));
+    public User update(User user) {
+        if (getId(user.getId()) == null) {
+            throw new NotFoundException(String.format("Обновление невозможно %s не сущесвует", user));
         }
         String sqlQuery = "UPDATE USERS SET EMAIL=?, LOGIN=?, NAME=?, BIRTHDAY=? WHERE USER_ID=?;";
-        jdbcTemplate.update(sqlQuery, u.getEmail(), u.getLogin(), u.getName(), u.getBirthday(), u.getId());
-        return getId(u.getId());
+        jdbcTemplate.update(sqlQuery, user.getEmail(), user.getLogin(), user.getName(), user.getBirthday(), user.getId());
+        return getId(user.getId());
     }
 
     @Override
