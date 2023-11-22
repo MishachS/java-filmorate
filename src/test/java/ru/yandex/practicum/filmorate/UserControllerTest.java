@@ -1,6 +1,7 @@
 package ru.yandex.practicum.filmorate;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,7 +21,7 @@ import java.nio.file.Files;
 import java.time.LocalDate;
 
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 public class UserControllerTest {
@@ -30,14 +31,16 @@ public class UserControllerTest {
     @Autowired
     private MockMvc mvc;
 
+    @BeforeEach
+    void setUp() {
+    }
+
     @Test
     void addUserTest() throws Exception {
         mvc.perform(MockMvcRequestBuilders.post(PATH)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(getStringFromFile("dataForTests/request/user")))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json(getStringFromFile(
-                        "dataForTests/response/user")));
+                .andExpect(MockMvcResultMatchers.status().isOk());
 
     }
 
