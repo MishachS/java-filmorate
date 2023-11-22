@@ -1,6 +1,7 @@
 package ru.yandex.practicum.filmorate.storage.database;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ import java.sql.SQLException;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-
+@Slf4j
 @Primary
 @Component
 @RequiredArgsConstructor
@@ -60,18 +61,18 @@ public class GenreDBStorage implements GenreStorage {
     }
 
     @Override
-    public Genre create(Genre genre) {
+    public Genre create(Genre data) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Genre update(Genre genre) {
+    public Genre update(Genre data) {
         throw new UnsupportedOperationException();
     }
 
 
     @Override
-    public boolean delete(Genre genre) {
+    public boolean delete(Genre data) {
         throw new UnsupportedOperationException();
     }
 

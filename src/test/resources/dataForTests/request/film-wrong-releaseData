@@ -1,5 +1,9 @@
 {
   "name": "testFilm",
   "description": "testFilm",
-  "duration": "100"
+  "duration": "100",
+  "releaseDate": "1890-03-25",
+  "mpa": {
+      "id": 1
+    }
 }

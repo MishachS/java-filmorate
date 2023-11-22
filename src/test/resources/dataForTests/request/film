@@ -2,5 +2,9 @@
   "name": "testFilm",
   "description": "testFilm",
   "releaseDate" : "2002-11-12",
-  "duration": "100"
+  "duration": "100",
+  "mpa": {
+      "id": 1,
+      "name": "G"
+    }
 }

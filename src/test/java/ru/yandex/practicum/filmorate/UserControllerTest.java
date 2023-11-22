@@ -33,8 +33,8 @@ public class UserControllerTest {
     @Test
     void addUserTest() throws Exception {
         mvc.perform(MockMvcRequestBuilders.post(PATH)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(getStringFromFile("dataForTests/request/user")))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(getStringFromFile("dataForTests/request/user")))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(getStringFromFile(
                         "dataForTests/response/user")));
