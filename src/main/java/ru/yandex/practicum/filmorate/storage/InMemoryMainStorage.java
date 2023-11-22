@@ -5,6 +5,7 @@ import ru.yandex.practicum.filmorate.model.MainModel;
 
 import java.util.*;
 
+@Deprecated
 public class InMemoryMainStorage<T extends MainModel> implements Storage<T> {
     private final Map<Long, T> storage = new HashMap<>();
     private long generationId;
