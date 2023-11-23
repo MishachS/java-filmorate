@@ -45,17 +45,17 @@ public class MpaDBStorage implements MpaStorage {
 
     @Override
     public Mpa create(Mpa data) {
-        throw new NotFoundException();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Mpa update(Mpa data) {
-        throw new NotFoundException();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean delete(Mpa data) {
-        throw new NotFoundException();
+        throw new UnsupportedOperationException();
     }
 
 }
