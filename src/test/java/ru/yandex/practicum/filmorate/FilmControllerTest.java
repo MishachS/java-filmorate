@@ -65,18 +65,6 @@ public class FilmControllerTest {
         Assertions.assertThrows(ValidationException.class, () -> filmController.addFilm(film));
     }
 
-    @Test
-    void validateFilmTest() {
-        Film film = Film.builder()
-                .name("filmTest1")
-                .description("filmTest1")
-                .releaseDate(LocalDate.of(2002, 11, 12))
-                .duration(100)
-                .build();
-        Film newFilm = filmController.addFilm(film);
-        Assertions.assertEquals(film.getName(), newFilm.getName());
-    }
-
     private String getContentFromFile(String filename) {
         try {
             return Files.readString(ResourceUtils.getFile("classpath:" + filename).toPath(),

@@ -1,6 +1,6 @@
 {
   "email": "sashamih12@yandex.ru",
-  "login": "login",
-  "name": "name",
+  "login": "testLogin",
+  "name": "testName",
   "birthday": "2024-11-12"
 }

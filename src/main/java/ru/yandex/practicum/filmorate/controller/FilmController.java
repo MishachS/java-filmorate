@@ -42,15 +42,15 @@ public class FilmController extends MainController<Film> {
     }
 
     @PutMapping("/{id}/like/{userId}")
-    public Film likeFilm(@PathVariable long id, @PathVariable long userId) {
+    public void likeFilm(@PathVariable long id, @PathVariable long userId) {
         log.info("Like film{}", id);
-        return filmService.addLike(id, userId);
+        filmService.addLike(id, userId);
     }
 
     @DeleteMapping("/{id}/like/{userId}")
-    public Film deleteLikeFilm(@PathVariable long id, @PathVariable long userId) {
+    public void deleteLikeFilm(@PathVariable long id, @PathVariable long userId) {
         log.info("Delete like film{}", id);
-        return filmService.deleteLike(id, userId);
+        filmService.deleteLike(id, userId);
     }
 
     @GetMapping("{id}")

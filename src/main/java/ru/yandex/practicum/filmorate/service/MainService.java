@@ -2,7 +2,6 @@ package ru.yandex.practicum.filmorate.service;
 
 import lombok.AllArgsConstructor;
 import ru.yandex.practicum.filmorate.model.MainModel;
-import ru.yandex.practicum.filmorate.storage.InMemoryMainStorage;
 import ru.yandex.practicum.filmorate.storage.Storage;
 
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.List;
 @AllArgsConstructor
 public abstract class MainService<T extends MainModel> implements Storage<T> {
 
-    private final InMemoryMainStorage<T> inMemoryMainStorage;
+    private final Storage<T> inMemoryMainStorage;
 
     @Override
     public T create(T data) {

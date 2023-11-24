@@ -5,10 +5,11 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import java.time.LocalDate;
-import java.util.Set;
-import java.util.TreeSet;
 
 
 @Data
@@ -23,8 +24,7 @@ public class User extends MainModel {
     @NotBlank
     private String login;
     private String name;
-    @PastOrPresent
+    @NotNull
+    @Past
     private LocalDate birthday;
-
-    private Set<Long> friends = new TreeSet<>();
 }
